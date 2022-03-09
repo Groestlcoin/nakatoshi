@@ -1,19 +1,19 @@
 [package]
 name = "nakatoshi"
 version = "0.2.5"
-authors = ["ndelvalle <nicolas.delvalle@gmail.com>"]
+authors = ["Groestlcoin Developers <groestlcoin@gmail.com>"]
 edition = "2018"
-description = "Bitcoin vanity address generator"
+description = "Groestlcoin vanity address generator"
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/ndelvalle/nakatoshi"
-repository = "https://github.com/ndelvalle/nakatoshi"
-keywords = ["bitcoin", "address", "vanity", "vanity-address"]
+homepage = "https://github.com/Groestlcoin/nakatoshi"
+repository = "https://github.com/Groestlcoin/nakatoshi"
+keywords = ["groestlcoin", "address", "vanity", "vanity-address"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-bitcoin = "0.27.1"
 clap = "3.1.6"
+groestlcoin = "0.27.1"
 time = "0.3.7"
 rayon = "1.5.1"
 getrandom = "0.2.5"

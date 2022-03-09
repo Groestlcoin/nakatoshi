@@ -1,4 +1,4 @@
-use bitcoin::secp256k1::Secp256k1;
+use groestlcoin::secp256k1::Secp256k1;
 use indicatif::{ProgressBar, ProgressStyle};
 use rayon::iter::ParallelIterator;
 use serde_json::json;
@@ -46,7 +46,7 @@ fn main() {
             .inspect(|_| progress.inc(1))
             .map(|create| create(&secp, is_compressed, is_bech32))
             .find_any(|address| address.starts_with_any(&prefixes, is_case_sensitive))
-            .expect("Failed to find Bitcoin address match")
+            .expect("Failed to find Groestlcoin address match")
     });
 
     let attempts = progress.position();
@@ -68,7 +68,7 @@ fn get_prefixes_from_file(file_name: &str) -> Vec<String> {
 
     let mut prefixes = buffer
         .lines()
-        .map(|line| line.expect("Failed to read Bitcoin address pattern from input file"))
+        .map(|line| line.expect("Failed to read Groestlcoin address pattern from input file"))
         .collect::<Vec<String>>();
 
     prefixes.sort_by_key(|a| a.len());
@@ -78,7 +78,7 @@ fn get_prefixes_from_file(file_name: &str) -> Vec<String> {
 #[cfg(test)]
 mod tests {
     use crate::address::BitcoinAddress;
-    use bitcoin::secp256k1::Secp256k1;
+    use groestlcoin::secp256k1::Secp256k1;
 
     #[test]
     fn create_compressed_bitcoin_public_key() {
@@ -114,7 +114,7 @@ mod tests {
         let bitcoin_address = BitcoinAddress::new(&secp, is_compressed, is_bech32);
         let address = bitcoin_address.address.to_string();
 
-        assert!(address.starts_with("bc1q"));
+        assert!(address.starts_with("grs1q"));
     }
 
     #[test]

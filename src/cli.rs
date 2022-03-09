@@ -40,7 +40,7 @@ pub fn prompt<'a>() -> clap::Command<'a> {
                 .short('b')
                 .long("bech32")
                 .takes_value(false)
-                .help("Use Bech32 addresses. Starting with bc1q (Lowercase address)"),
+                .help("Use Bech32 addresses. Starting with grs1q (Lowercase address)"),
         )
         .arg(
             clap::Arg::new("uncompressed")

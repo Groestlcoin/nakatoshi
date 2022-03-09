@@ -1,9 +1,6 @@
-name: Rust
+name: CI
 
-on:
-  pull_request:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   rust-integration-jobs:
@@ -16,7 +13,7 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v1
-      
+
       - name: Install toolchain
         uses: actions-rs/toolchain@v1
         with:
